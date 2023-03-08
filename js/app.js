@@ -3,26 +3,42 @@ const addLineButton = document.querySelector(".add-line-btn");
 const resetButton = document.querySelector(".reset-btn");
 const chordTableContainer = document.getElementById("chord-table-container");
 const imageContainer = document.getElementById("tablature-image-container");
+var cntLine = 1;
 
 showButton.addEventListener("click", function () {
   imageContainer.innerHTML = "";
-  const chordInputs = document.querySelectorAll(".chord-input");
+  const chordLines = document.querySelectorAll(
+    "#chord-table-container .chord-line"
+  );
 
-  const newImageLine = document.createElement("div");
-  newImageLine.classList.add("image-line");
-
-  chordInputs.forEach(function (chordInput) {
-    const chordImage = document.createElement("img");
-    chordImage.classList.add("chord-image");
-    if (chordInput.value == "") {
-      chordImage.src = "images/none.jpg";
-    } else {
-      chordImage.src = "images/" + chordInput.value + ".jpg";
+  for (let i = 0; i < cntLine; i++) {
+    if (i != 0) {
+      const newDividerLine = document.createElement("div");
+      newDividerLine.classList.add("divider-line");
+      imageContainer.appendChild(newDividerLine);
     }
-    newImageLine.appendChild(chordImage);
-  });
 
-  imageContainer.appendChild(newImageLine);
+    const currentChordLine = chordLines[i];
+    const newImageLine = document.createElement("div");
+    newImageLine.classList.add("image-line");
+
+    for (let j = 0; j < 8; j++) {
+      const currentChordInput = currentChordLine.children[j];
+      const chordInputValue = currentChordInput.value;
+
+      const chordImage = document.createElement("img");
+      chordImage.classList.add("chord-image");
+      if (chordInputValue == "") {
+        chordImage.src = "images/none.png";
+      } else {
+        chordImage.src = "images/" + chordInputValue + ".png";
+      }
+
+      newImageLine.appendChild(chordImage);
+    }
+
+    imageContainer.appendChild(newImageLine);
+  }
 });
 
 addLineButton.addEventListener("click", function () {
@@ -41,6 +57,7 @@ addLineButton.addEventListener("click", function () {
   }
 
   chordTableContainer.appendChild(newChordLine);
+  cntLine++;
 });
 
 resetButton.addEventListener("click", function () {
@@ -57,4 +74,5 @@ resetButton.addEventListener("click", function () {
   }
 
   chordTableContainer.appendChild(newChordLine);
+  cntLine = 1;
 });

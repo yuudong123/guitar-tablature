@@ -1,11 +1,16 @@
 * {
   margin: 0;
 }
-
-.show-btn,
-.add-line-btn,
-.remove-line-btn,
-.reset-btn {
+body {
+  background-color: rgb(41, 41, 41);
+}
+h1 {
+  color: rgb(0, 0, 0);
+  background-color: #838383;
+  padding: 10px;
+}
+.buttons * {
+  background-color: rgb(167, 167, 167);
   font-size: 25px;
   font-weight: bold;
   height: 50px;
@@ -23,12 +28,13 @@ h1 {
 }
 
 #chord-table-container {
+  background-color: rgb(124, 124, 124);
   text-align: center;
   height: auto;
   width: 600px;
   margin: 0 auto;
   padding: 10px 10px 0 10px;
-  border: 1px solid black;
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .chord-line {
@@ -39,30 +45,43 @@ h1 {
 }
 
 .chord-input {
+  background-color: rgb(167, 167, 167);
   width: 50px;
   height: 20px;
   padding: 3px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 5px;
   font-size: 14px;
 }
 
 #tablature-image-container {
+  background-color: rgb(124, 124, 124);
   text-align: center;
   height: auto;
-  width: 1100px;
+  width: 1048px;
   margin: 0 auto;
-  padding: 10px 10px 0 10px;
-  border: 1px solid black;
+  padding: 10px;
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .divider-line {
   height: 1px;
-  background-color: #ccc;
+  width: auto;
+  background-color: #ffffff;
   margin-bottom: 10px;
+}
+
+#tablature-image-container .divider-line {
+  width: 1048px;
+  margin: 10px 0;
 }
 
 .chord-image {
   width: 125px;
   padding: 3px;
+}
+
+.image-line {
+  width: 1048px;
+  height: 116px;
 }
