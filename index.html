@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Guitar Tablature App</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/html2canvas.min.js"></script>
   </head>
   <body>
     <h1>Guitar Tablature App</h1>
@@ -11,7 +12,6 @@
       <button class="show-btn">Show</button>
       <button class="add-line-btn">Add line</button>
       <button class="reset-btn">Reset</button>
-      <button class="save-btn">Save</button>
     </div>
     <div id="chord-table-container">
       <div class="chord-line">
@@ -26,7 +26,10 @@
       </div>
     </div>
     <br />
-    <div id="tablature-image-container"></div>
+    <div id="container">
+      <div id="tablature-image-container"></div>
+      <button class="save-btn">Save .png</button>
+    </div>
     <script src="js/app.js"></script>
   </body>
 </html>

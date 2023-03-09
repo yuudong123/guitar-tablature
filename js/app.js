@@ -1,6 +1,7 @@
 const showButton = document.querySelector(".show-btn");
 const addLineButton = document.querySelector(".add-line-btn");
 const resetButton = document.querySelector(".reset-btn");
+const saveButton = document.querySelector(".save-btn");
 const chordTableContainer = document.getElementById("chord-table-container");
 const imageContainer = document.getElementById("tablature-image-container");
 var cntLine = 1;
@@ -75,4 +76,15 @@ resetButton.addEventListener("click", function () {
 
   chordTableContainer.appendChild(newChordLine);
   cntLine = 1;
+});
+
+saveButton.addEventListener("click", function () {
+  html2canvas(document.getElementById("tablature-image-container")).then(
+    function (canvas) {
+      var el = document.createElement("a");
+      el.href = canvas.toDataURL("image/png");
+      el.download = "New Tablature.png"; //다운로드 할 파일명 설정
+      el.click();
+    }
+  );
 });

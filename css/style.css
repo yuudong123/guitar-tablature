@@ -85,3 +85,22 @@ h1 {
   width: 1048px;
   height: 116px;
 }
+
+#container {
+  position: relative;
+  width: 1072px;
+  margin: 0 auto;
+}
+
+.save-btn {
+  background-color: rgb(167, 167, 167);
+  font-size: 25px;
+  font-weight: bold;
+  height: 50px;
+  width: 200px;
+  position: absolute;
+  left: 0;
+  bottom: -60px;
+  margin: 0;
+  padding: 0;
+}
