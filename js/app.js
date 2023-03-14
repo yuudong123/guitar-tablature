@@ -41,7 +41,6 @@ Buttons.addEventListener("click", (event) => {
           } else {
             chordImage.src = "images/" + chordInputValue + ".png";
           }
-
           newImageLine.appendChild(chordImage);
         }
 
