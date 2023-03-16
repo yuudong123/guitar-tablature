@@ -8,11 +8,6 @@
   </head>
   <body>
     <h1>Guitar Tablature App</h1>
-    <div class="buttons">
-      <button class="show-btn">Show</button>
-      <button class="add-line-btn">Add line</button>
-      <button class="reset-btn">Reset</button>
-    </div>
     <div id="chord-table-container">
       <div class="chord-line">
         <div class="handle"></div>
@@ -33,12 +28,16 @@
         <div class="cell"><input type="text" value="" /></div>
       </div>
     </div>
-    <br />
-    <div id="container">
-      <div id="tablature-image-container"></div>
-      <button class="save-btn">Save .png</button>
-    </div>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        $("#chord-table-container").sortable({
+          axis: "y",
+          cancel: "input",
+          containment: "parent",
+        });
+      });
+    </script>
   </body>
 </html>

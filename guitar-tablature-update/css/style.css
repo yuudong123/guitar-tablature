@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+}
+body {
+  background-color: rgb(41, 41, 41);
+}
+h1 {
+  color: rgb(0, 0, 0);
+  background-color: #838383;
+  padding: 10px;
+}
+#chord-table-container {
+  background-color: rgb(124, 124, 124);
+  height: auto;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid rgb(255, 255, 255);
+}
+.chord-line {
+  background-color: rgb(167, 167, 167);
+  display: flex;
+  position: relative;
+  padding-left: 20px;
+  margin-top: 10px;
+  border: 1px solid #ffffff;
+  line-height: 100%;
+}
+.cell {
+  background-color: rgb(236, 236, 236);
+  width: 50px;
+  height: 20px;
+  margin: 3px;
+  padding: 3px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.cell input {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+  .handle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+  }
+  .handle:before {
+    content: "||";
+  }
+  .handle:active {
+    background-color: #f0f0f0;
+  }
