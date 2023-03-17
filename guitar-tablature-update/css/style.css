@@ -24,27 +24,38 @@ h1 {
   width: 200px;
   position: relative;
 }
-.input-wrap {
+.wrap-input {
+  position: relative;
   width: fit-content;
   margin: 0 auto;
-  position: relative;
 }
 .set-input-number {
   width: fit-content;
+  display: flex;
   padding: 3px;
   background-color: rgb(167, 167, 167);
   border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
   position: absolute;
-  left: 0;
+  top: -10px;
+  left: calc(50% - 25px);
 }
-.notification {
-  display: none;
-  position: absolute;
-  background-color: #f44336;
-  color: white;
-  padding: 10px;
-  z-index: 1;
+.show-cnt-input {
+  width: 18px;
+  text-align: center;
+  line-height: 16px;
+  font-size: 14px;
 }
+.set-input-number button {
+  border: none;
+  padding: 0;
+  width: 21px;
+  height: 21px;
+  font-size: 16px;
+  line-height: 100%;
+  background: none;
+}
+
 #container-chord-input {
   min-width: 534px;
   min-height: 56px;
@@ -54,7 +65,8 @@ h1 {
   margin: 0 auto;
   padding: 0 10px;
   border: 2px solid rgb(255, 255, 255);
-  top: 40px;
+  border-radius: 5px;
+  top: 25px;
 }
 .chord-line {
   background-color: rgb(167, 167, 167);
@@ -63,6 +75,7 @@ h1 {
   padding-left: 20px;
   margin: 10px 0;
   border: 1px solid #ffffff;
+  border-radius: 5px;
   line-height: 100%;
 }
 .cell {
@@ -105,6 +118,18 @@ h1 {
 .handle:active {
   background-color: #f0f0f0;
 }
+.btn-del-line {
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: none;
+  border-radius: 20%;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 100%;
+  padding: 0;
+  color: #800800;
+}
 
 #container-image {
   width: fit-content;
@@ -116,6 +141,7 @@ h1 {
   margin: 0 auto;
   padding: 10px;
   border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
 }
 
 #container-image .divider-line {

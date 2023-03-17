@@ -13,15 +13,13 @@
       <button class="btn-reset">Reset</button>
       <button class="btn-download">Download</button>
     </div>
-    <div class="input-wrap">
-      <div class="set-wrap">
-        <div class="set-input-number">
-          <button class="btn-cntUp">+</button>
-          <input type="hidden" value="8" class="cntInput" />
-          <span class="showCntInput"></span>
-          <button class="btn-cntDown">-</button>
-        </div>
-        <div class="notification"></div>
+
+    <div class="wrap-input">
+      <div class="set-input-number">
+        <button class="btn-cntUp">+</button>
+        <input type="hidden" value="8" class="cntInput" />
+        <span class="show-cnt-Input"></span>
+        <button class="btn-cntDown">-</button>
       </div>
       <div id="container-chord-input">
         <div class="chord-line">
@@ -34,15 +32,18 @@
           <div class="cell"><input type="text" value="" /></div>
           <div class="cell"><input type="text" value="" /></div>
           <div class="cell"><input type="text" value="" /></div>
+          <button class="btn-del-line">&times;</button>
         </div>
       </div>
     </div>
+
     <br />
-    <br /><br />
+    <br /><br /><br />
     <div id="container-image"></div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
     <script src="scripts/container-chord-inputs.js"></script>
+    <script src="scripts/html2canvas.min.js"></script>
     <script>
       $(function () {
         const containerChordInput = $("#container-chord-input");
@@ -51,7 +52,7 @@
         const setInputNumber = $(".set-input-number");
         var cntLine = 1;
         var cntInputVal = 8;
-        const showCntInput = $(".showCntInput");
+        const showCntInput = $(".show-cnt-Input");
         showCntInput.text(cntInputVal);
 
         buttons.on("click", (event) => {
@@ -90,20 +91,32 @@
               console.log("Add line clicked");
               const newChordLine = $("<div class='chord-line'></div>");
               const newHandle = $("<div class='handle'></div>");
+              const newDelBtn = $('<button class="btn-del-line">&times;</button>');
 
               newChordLine.append(newHandle);
               for (let i = 0; i < cntInputVal; i++) {
                 const newChordInput = $("<div class='cell'><input type='text' value='' /></div>");
                 newChordLine.append(newChordInput);
               }
+              newChordLine.append(newDelBtn);
               containerChordInput.append(newChordLine);
+
               cntLine++;
               break;
             }
             case "btn-reset": {
+              containerChordInput.html("");
+              $(".btn-add-line").click();
+              containerImage.html("");
               break;
             }
             case "btn-download": {
+              html2canvas(document.getElementById("container-image")).then(function (canvas) {
+                var a = document.createElement("a");
+                a.href = canvas.toDataURL("image/png");
+                a.download = "New Tablature.png";
+                a.click();
+              });
               break;
             }
           }
@@ -112,20 +125,25 @@
         setInputNumber.on("click", (event) => {
           const cls = event.target.className;
           const cntInput = $(".cntInput");
-          if (cntInputVal > 1 && cntInputVal < 16) {
-            switch (cls) {
-              case "btn-cntUp": {
-                cntInputVal++;
-                break;
-              }
-              case "btn-cntDown": {
-                cntInputVal--;
-                break;
-              }
+          switch (cls) {
+            case "btn-cntUp": {
+              cntInputVal++;
+              break;
             }
-            showCntInput.text(cntInputVal);
-          } else {
+            case "btn-cntDown": {
+              cntInputVal--;
+              break;
+            }
           }
+          if (cntInputVal >= 16) {
+            $(".btn-cntUp").attr("disabled", true);
+          } else if (cntInputVal <= 1) {
+            $(".btn-cntDown").attr("disabled", true);
+          } else {
+            $(".btn-cntDown").removeAttr("disabled");
+            $(".btn-cntUp").removeAttr("disabled");
+          }
+          showCntInput.text(cntInputVal);
         });
       });
     </script>
