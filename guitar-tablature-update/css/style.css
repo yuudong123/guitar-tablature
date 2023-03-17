@@ -3,26 +3,65 @@
 }
 body {
   background-color: rgb(41, 41, 41);
+  text-align: center;
 }
 h1 {
   color: rgb(0, 0, 0);
   background-color: #838383;
   padding: 10px;
 }
-#chord-table-container {
+
+.buttons {
+  text-align: center;
+  margin: 20px;
+}
+
+.buttons * {
+  background-color: rgb(167, 167, 167);
+  font-size: 25px;
+  font-weight: bold;
+  height: 50px;
+  width: 200px;
+  position: relative;
+}
+.input-wrap {
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+.set-input-number {
+  width: fit-content;
+  padding: 3px;
+  background-color: rgb(167, 167, 167);
+  border: 2px solid rgb(255, 255, 255);
+  position: absolute;
+  left: 0;
+}
+.notification {
+  display: none;
+  position: absolute;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  z-index: 1;
+}
+#container-chord-input {
+  min-width: 534px;
+  min-height: 56px;
   background-color: rgb(124, 124, 124);
-  height: auto;
+  position: relative;
   display: inline-block;
   margin: 0 auto;
-  padding: 10px;
+  padding: 0 10px;
   border: 2px solid rgb(255, 255, 255);
+  top: 40px;
 }
 .chord-line {
   background-color: rgb(167, 167, 167);
   display: flex;
   position: relative;
   padding-left: 20px;
-  margin-top: 10px;
+  margin: 10px 0;
   border: 1px solid #ffffff;
   line-height: 100%;
 }
@@ -46,23 +85,52 @@ h1 {
   outline: none;
   background-color: transparent;
 }
-  .handle {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 20px;
-    cursor: move;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 16px;
-    color: black;
-  }
-  .handle:before {
-    content: "||";
-  }
-  .handle:active {
-    background-color: #f0f0f0;
-  }
+.handle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  cursor: move;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+}
+.handle:before {
+  content: "||";
+}
+.handle:active {
+  background-color: #f0f0f0;
+}
+
+#container-image {
+  width: fit-content;
+  height: fit-content;
+  min-width: 1048px;
+  min-height: 20px;
+  background-color: rgb(124, 124, 124);
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+#container-image .divider-line {
+  height: 1px;
+  background-color: #ffffff;
+  margin: 10px 0;
+  width: auto;
+}
+
+.chord-image {
+  width: 125px;
+  padding: 3px;
+}
+
+.image-line {
+  width: auto;
+  height: 116px;
+}

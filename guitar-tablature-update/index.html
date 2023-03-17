@@ -4,38 +4,128 @@
     <meta charset="utf-8" />
     <title>Guitar Tablature App</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/html2canvas.min.js"></script>
   </head>
   <body>
     <h1>Guitar Tablature App</h1>
-    <div id="chord-table-container">
-      <div class="chord-line">
-        <div class="handle"></div>
-        <div class="cell"><input type="text" value="" /></div>
-        <div class="cell"><input type="text" value="" /></div>
-        <div class="cell"><input type="text" value="" /></div>
+    <div class="buttons">
+      <button class="btn-show">Show</button>
+      <button class="btn-add-line">Add line</button>
+      <button class="btn-reset">Reset</button>
+      <button class="btn-download">Download</button>
+    </div>
+    <div class="input-wrap">
+      <div class="set-wrap">
+        <div class="set-input-number">
+          <button class="btn-cntUp">+</button>
+          <input type="hidden" value="8" class="cntInput" />
+          <span class="showCntInput"></span>
+          <button class="btn-cntDown">-</button>
+        </div>
+        <div class="notification"></div>
       </div>
-      <div class="chord-line">
-        <div class="handle"></div>
-        <div class="cell"><input type="text" value="" /></div>
-        <div class="cell"><input type="text" value="" /></div>
-        <div class="cell"><input type="text" value="" /></div>
-      </div>
-      <div class="chord-line">
-        <div class="handle"></div>
-        <div class="cell"><input type="text" value="" /></div>
-        <div class="cell"><input type="text" value="" /></div>
-        <div class="cell"><input type="text" value="" /></div>
+      <div id="container-chord-input">
+        <div class="chord-line">
+          <div class="handle"></div>
+          <div class="cell"><input type="text" value="a" /></div>
+          <div class="cell"><input type="text" value="" /></div>
+          <div class="cell"><input type="text" value="" /></div>
+          <div class="cell"><input type="text" value="" /></div>
+          <div class="cell"><input type="text" value="" /></div>
+          <div class="cell"><input type="text" value="" /></div>
+          <div class="cell"><input type="text" value="" /></div>
+          <div class="cell"><input type="text" value="" /></div>
+        </div>
       </div>
     </div>
+    <br />
+    <br /><br />
+    <div id="container-image"></div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="scripts/container-chord-inputs.js"></script>
     <script>
       $(function () {
-        $("#chord-table-container").sortable({
-          axis: "y",
-          cancel: "input",
-          containment: "parent",
+        const containerChordInput = $("#container-chord-input");
+        const containerImage = $("#container-image");
+        const buttons = $(".buttons");
+        const setInputNumber = $(".set-input-number");
+        var cntLine = 1;
+        var cntInputVal = 8;
+        const showCntInput = $(".showCntInput");
+        showCntInput.text(cntInputVal);
+
+        buttons.on("click", (event) => {
+          const cls = event.target.className;
+
+          switch (cls) {
+            case "btn-show": {
+              containerImage.html("");
+              const chordLines = $("#container-chord-input .chord-line");
+
+              for (let i = 0; i < cntLine; i++) {
+                if (i != 0) {
+                  const newDividerLine = $("<div class='divider-line'></div>");
+                  containerImage.append(newDividerLine);
+                }
+
+                const currentChordLine = chordLines.eq(i);
+                const newImageLine = $("<div class='image-line'></div>");
+
+                for (let j = 1; j <= cntInputVal; j++) {
+                  const currentChordInput = currentChordLine.children().eq(j).children().val();
+                  const chordImage = $("<img class='chord-image'/>");
+                  if (currentChordInput == "") {
+                    chordImage.attr("src", "images/none.png");
+                  } else {
+                    chordImage.attr("src", "images/" + currentChordInput + ".png");
+                  }
+                  newImageLine.append(chordImage);
+                }
+
+                containerImage.append(newImageLine);
+              }
+              break;
+            }
+            case "btn-add-line": {
+              console.log("Add line clicked");
+              const newChordLine = $("<div class='chord-line'></div>");
+              const newHandle = $("<div class='handle'></div>");
+
+              newChordLine.append(newHandle);
+              for (let i = 0; i < cntInputVal; i++) {
+                const newChordInput = $("<div class='cell'><input type='text' value='' /></div>");
+                newChordLine.append(newChordInput);
+              }
+              containerChordInput.append(newChordLine);
+              cntLine++;
+              break;
+            }
+            case "btn-reset": {
+              break;
+            }
+            case "btn-download": {
+              break;
+            }
+          }
+        });
+
+        setInputNumber.on("click", (event) => {
+          const cls = event.target.className;
+          const cntInput = $(".cntInput");
+          if (cntInputVal > 1 && cntInputVal < 16) {
+            switch (cls) {
+              case "btn-cntUp": {
+                cntInputVal++;
+                break;
+              }
+              case "btn-cntDown": {
+                cntInputVal--;
+                break;
+              }
+            }
+            showCntInput.text(cntInputVal);
+          } else {
+          }
         });
       });
     </script>

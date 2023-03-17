@@ -1,10 +1,10 @@
 $(document).ready(function () {
   const Buttons = $(".buttons");
   const saveButton = $(".save-btn");
-  const Lines = $("#lines");
   const chordTableContainer = $("#chord-table-container");
   const imageContainer = $("#tablature-image-container");
   var cntLine = 1;
+  var cntInput = 3;
 
   Buttons.on("click", (event) => {
     const cls = event.target.className;
@@ -23,7 +23,7 @@ $(document).ready(function () {
           const currentChordLine = chordLines.eq(i);
           const newImageLine = $("<div class='image-line'></div>");
 
-          for (let j = 0; j < 8; j++) {
+          for (let j = 0; j < cntInput; j++) {
             const currentChordInput = currentChordLine.children().eq(j);
             const chordInputValue = currentChordInput.val();
 
@@ -43,17 +43,17 @@ $(document).ready(function () {
       case "add-line-btn": {
         const newDividerLine = $("<div class='divider-line'></div>");
         const newChordLine = $("<div class='chord-line'></div>");
-
+        const newHandle = $("<div class='handle'></div>");
         chordTableContainer.append(newDividerLine);
 
-        for (let i = 0; i < 8; i++) {
-          const newChordInput = $("<input type='text' class='chord-input'/>");
+        newChordLine.append(newHandle);
+        for (let i = 0; i < cntInput; i++) {
+          const newChordInput = $("<div class='cell'><input type='text' value='' /></div>");
           newChordLine.append(newChordInput);
         }
 
         chordTableContainer.append(newChordLine);
         cntLine++;
-        Lines.text(cntLine);
         break;
       }
       case "reset-btn": {
@@ -61,7 +61,7 @@ $(document).ready(function () {
         imageContainer.html("");
         const newChordLine = $("<div class='chord-line'></div>");
 
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < cntInput; i++) {
           const newChordInput = $("<input type='text' class='chord-input'/>");
           newChordLine.append(newChordInput);
         }
@@ -74,13 +74,11 @@ $(document).ready(function () {
   });
 
   saveButton.on("click", function () {
-    html2canvas(document.getElementById("tablature-image-container")).then(
-      function (canvas) {
-        var a = document.createElement("a");
-        a.href = canvas.toDataURL("image/png");
-        a.download = "New Tablature.png";
-        a.click();
-      }
-    );
+    html2canvas(document.getElementById("tablature-image-container")).then(function (canvas) {
+      var a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = "New Tablature.png";
+      a.click();
+    });
   });
 });
