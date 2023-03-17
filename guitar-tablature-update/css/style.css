@@ -46,6 +46,10 @@ h1 {
   line-height: 16px;
   font-size: 14px;
 }
+.set-input-number span {
+  font-weight: bold;
+  margin: 0 3px;
+}
 .set-input-number button {
   border: none;
   padding: 0;
@@ -53,11 +57,14 @@ h1 {
   height: 21px;
   font-size: 16px;
   line-height: 100%;
-  background: none;
+  background-color: rgb(167, 167, 167);
+}
+.set-input-number button:active {
+  background-color: rgb(219, 219, 219);
 }
 
 #container-chord-input {
-  min-width: 534px;
+  min-width: 592px;
   min-height: 56px;
   background-color: rgb(124, 124, 124);
   position: relative;
@@ -111,9 +118,6 @@ h1 {
   font-weight: bold;
   font-size: 16px;
   color: black;
-}
-.handle:before {
-  content: "||";
 }
 .handle:active {
   background-color: #f0f0f0;

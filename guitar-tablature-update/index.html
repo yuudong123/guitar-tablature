@@ -16,14 +16,14 @@
 
     <div class="wrap-input">
       <div class="set-input-number">
-        <button class="btn-cntUp">+</button>
+        <button class="btn-cntUp">&plus;</button>
         <input type="hidden" value="8" class="cntInput" />
         <span class="show-cnt-Input"></span>
-        <button class="btn-cntDown">-</button>
+        <button class="btn-cntDown">&minus;</button>
       </div>
       <div id="container-chord-input">
         <div class="chord-line">
-          <div class="handle"></div>
+          <div class="handle">&equals;</div>
           <div class="cell"><input type="text" value="a" /></div>
           <div class="cell"><input type="text" value="" /></div>
           <div class="cell"><input type="text" value="" /></div>
@@ -36,7 +36,6 @@
         </div>
       </div>
     </div>
-
     <br />
     <br /><br /><br />
     <div id="container-image"></div>
@@ -108,6 +107,8 @@
               containerChordInput.html("");
               $(".btn-add-line").click();
               containerImage.html("");
+              cntLine = 1;
+              cntInputVal = 8;
               break;
             }
             case "btn-download": {
