@@ -38,7 +38,8 @@ $(function () {
             if (currentChordInput == "") {
               chordImage.attr("src", "images/none.png");
             } else {
-              chordImage.attr("src", "images/" + currentChordInput + ".png");
+              const encodedChordInput = encodeURIComponent(currentChordInput.replace("Ab", "G%23").replace("Bb", "A%23").replace("Cb", "B").replace("Db", "C%23").replace("Eb", "D%23").replace("Fb", "E").replace("Gb", "F%23").replace("A#", "A%23").replace("B#", "C").replace("C#", "C%23").replace("D#", "D%23").replace("E#", "F").replace("F#", "F%23").replace("G#", "G%23"));
+              chordImage.attr("src", "images/" + encodedChordInput + ".png");
             }
             newImageLine.append(chordImage);
           }
