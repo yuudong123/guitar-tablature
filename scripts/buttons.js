@@ -110,7 +110,7 @@ $(function () {
     switch (cls) {
       case "btn-line-up": {
         const newChordLine = $("<div class='chord-line'></div>");
-        const newHandle = $("<div class='handle'>&equals;</div>");
+        const newHandle = $("<div class='handle'>||</div>");
         const newDelBtn = $('<button class="btn-del-line">&times;</button>');
 
         newChordLine.append(newHandle);
