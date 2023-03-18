@@ -4,13 +4,24 @@
 body {
   background-color: rgb(41, 41, 41);
   text-align: center;
+  position: relative;
+  padding-bottom: 50px;
 }
 h1 {
   color: rgb(0, 0, 0);
   background-color: #838383;
   padding: 10px;
-  text-align: center;
 }
+
+.cntLine,
+.cntInput {
+  display: none;
+}
+.buttons {
+  text-align: center;
+  margin: 20px;
+}
+
 .buttons * {
   background-color: rgb(167, 167, 167);
   font-size: 25px;
@@ -19,30 +30,78 @@ h1 {
   width: 200px;
   position: relative;
 }
-
-.buttons {
+.wrap-input {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
   text-align: center;
-  margin: 20px;
-}
-
-#chord-table-container {
-  background-color: rgb(124, 124, 124);
-  height: auto;
-  display: inline-block;
-  width: auto;
   margin: 0 auto;
-  padding: 10px;
+  margin-bottom: 10px;
+}
+.wrap-set-number {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: fit-content;
+  height: fit-content;
+}
+.set-line-number,
+.set-input-number {
+  width: fit-content;
+  display: inline-block;
+  padding: 3px;
+  background-color: rgb(167, 167, 167);
   border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
+}
+.show-cnt-line,
+.show-cnt-input {
+  width: 18px;
+  text-align: center;
+  line-height: 100%;
+  font-size: 14px;
+}
+.set-line-number span,
+.set-input-number span {
+  font-weight: bold;
+  margin: 0 3px;
+}
+.set-line-number button,
+.set-input-number button {
+  border: none;
+  padding: 0;
+  width: 21px;
+  height: 21px;
+  font-size: 16px;
+  line-height: 100%;
+  background-color: rgb(167, 167, 167);
+}
+.set-line-number button:active,
+.set-input-number button:active {
+  background-color: rgb(219, 219, 219);
 }
 
+#container-chord-input {
+  min-height: 56px;
+  background-color: rgb(124, 124, 124);
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
+}
 .chord-line {
   background-color: rgb(167, 167, 167);
   display: flex;
   position: relative;
   padding-left: 20px;
-  margin-top: 10px;
+  margin: 10px;
   border: 1px solid #ffffff;
+  border-radius: 5px;
   line-height: 100%;
+}
+.chord-line:active {
+  background-color: #c9c9c9;
 }
 .cell {
   background-color: rgb(236, 236, 236);
@@ -66,9 +125,8 @@ h1 {
 }
 .handle {
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  left: 2px;
+  top: 8px;
   width: 20px;
   cursor: move;
   display: flex;
@@ -78,60 +136,59 @@ h1 {
   font-size: 16px;
   color: black;
 }
-.handle:before {
-  content: "||";
-}
-.handle:active {
-  background-color: #f0f0f0;
+.btn-del-line {
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: none;
+  border-radius: 20%;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 100%;
+  padding: 0;
+  color: #800800;
 }
 
-#tablature-image-container {
+#container-image {
+  width: fit-content;
+  height: fit-content;
+  min-height: 20px;
   background-color: rgb(124, 124, 124);
   text-align: center;
-  height: auto;
-  width: 1048px;
   margin: 0 auto;
   padding: 10px;
   border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
 }
 
-.divider-line {
+#tab-title {
+  min-width: 300px;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+#tab-title::placeholder {
+  color: rgb(68, 68, 68);
+}
+#container-image .divider-line {
   height: 1px;
-  width: auto;
   background-color: #ffffff;
   margin: 10px 0;
-}
-
-#tablature-image-container .divider-line {
-  width: 1048px;
-  margin: 10px 0;
+  width: auto;
 }
 
 .chord-image {
   width: 125px;
-  padding: 3px;
 }
 
 .image-line {
-  width: 1048px;
-  height: 116px;
-}
-
-#container {
-  position: relative;
-  width: 1072px;
+  width: fit-content;
+  height: 110px;
+  display: flex;
+  column-gap: 8px;
   margin: 0 auto;
-}
-
-.save-btn {
-  background-color: rgb(167, 167, 167);
-  font-size: 25px;
-  font-weight: bold;
-  height: 50px;
-  width: 200px;
-  position: absolute;
-  left: 0;
-  bottom: -60px;
-  margin: 0;
-  padding: 0;
+  margin-top: 10px;
 }

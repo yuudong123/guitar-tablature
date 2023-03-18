@@ -2,31 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Guitar Tablature App</title>
+    <title>Guitar Tablature</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/html2canvas.min.js"></script>
   </head>
   <body>
-    <h1>Guitar Tablature App</h1>
+    <h1>Guitar Tablature</h1>
     <div class="buttons">
-      <button class="show-btn">Show</button>
-      <button class="add-line-btn">Add line</button>
-      <button class="reset-btn">Reset</button>
+      <button class="btn-show">Show</button>
+      <button class="btn-reset">Reset</button>
+      <button class="btn-download">Download</button>
     </div>
-    <div id="chord-table-container">
-      <div class="chord-line">
-        <div class="handle"></div>
-        <div class="cell"><input type="text" value="" /></div>
-        <div class="cell"><input type="text" value="" /></div>
-        <div class="cell"><input type="text" value="" /></div>
+    <div class="wrap-input">
+      <div class="wrap-set-number">
+        <div class="set-input-number">
+          <button class="btn-input-up">&plus;</button>
+          <span>Cell : </span>
+          <input type="number" value="8" class="cnt-input" style="display: none" />
+          <span class="show-cnt-input"></span>
+          <button class="btn-input-down">&minus;</button>
+        </div>
+        <div class="set-line-number">
+          <button class="btn-line-up">&plus;</button>
+          <span>Line : </span>
+          <input type="number" value="0" class="cnt-line" style="display: none" />
+          <span class="show-cnt-line"></span>
+          <button class="btn-line-down">&minus;</button>
+        </div>
       </div>
+      <div id="container-chord-input"></div>
     </div>
-    <br />
-    <div id="container">
-      <div id="tablature-image-container"></div>
-      <button class="save-btn">Save .png</button>
+    <div id="container-image">
+      <input type="text" id="tab-title" placeholder="Enter Title" />
     </div>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="scripts/buttons.js"></script>
+    <script src="scripts/html2canvas.min.js"></script>
+    <script src="scripts/container-chord-inputs.js"></script>
   </body>
 </html>
