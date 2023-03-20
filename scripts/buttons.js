@@ -119,11 +119,16 @@ $(function () {
           newChordLine.append(newChordInput);
         }
         newChordLine.append(newDelBtn);
-        $(".btn-del-line").click(function () {
-          $(this).parent().remove();
-          cntLine--;
-          showCntLine.text(cntLine);
-          $(".cnt-line").attr("value", cntLine);
+        $(newDelBtn).click(function () {
+          if (cntLine > 1) {
+            cntLine--;
+            showCntLine.text(cntLine);
+            $(".cnt-line").attr("value", cntLine);
+            $(this).parent().remove();
+            if (cntLine == 1) {
+              $(".btn-line-down").attr("disabled", true);
+            }
+          }
         });
         containerChordInput.append(newChordLine);
 
@@ -146,6 +151,7 @@ $(function () {
     showCntLine.text(cntLine);
     $(".cnt-line").attr("value", cntLine);
   });
+
   $(".btn-line-up").click();
   $(".btn-line-down").attr("disabled", true);
 });
