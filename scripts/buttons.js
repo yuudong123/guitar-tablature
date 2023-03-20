@@ -121,6 +121,9 @@ $(function () {
         newChordLine.append(newDelBtn);
         $(".btn-del-line").click(function () {
           $(this).parent().remove();
+          cntLine--;
+          showCntLine.text(cntLine);
+          $(".cnt-line").attr("value", cntLine);
         });
         containerChordInput.append(newChordLine);
 
