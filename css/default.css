@@ -1,0 +1,66 @@
+/* Header */
+ul,
+ol {
+  list-style: none;
+}
+.item-header-menu,
+footer a {
+  color: black;
+  text-decoration-line: none;
+}
+.item-header-menu:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration-line: none;
+}
+footer a:hover {
+  color: black;
+  text-decoration-line: none;
+}
+header::after {
+  display: block;
+  background: rgb(217, 217, 217);
+  content: "";
+  width: 100%;
+  height: 1px;
+}
+#gnb,
+#etc {
+  column-gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+#gnb li,
+#etc li {
+  position: relative;
+  display: inline;
+}
+#etc input {
+  margin: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  line-height: 100%;
+}
+#etc button {
+  background: none;
+  width: 60px;
+  padding: 0;
+  border: none;
+}
+#search-bar,
+#bar {
+  background: rgb(217, 217, 217);
+  height: 5px;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  transition: all 0.3s;
+  position: absolute;
+}
+#search-bar {
+  right: 30px;
+}
+#bar {
+  left: 50%;
+}
+/* Header */

@@ -99,8 +99,8 @@ h1 {
 }
 .cell {
   background-color: rgb(236, 236, 236);
-  width: 50px;
-  height: 20px;
+  width: 58px;
+  height: 28px;
   margin: 3px;
   padding: 3px;
   border: 1px solid #000000;
@@ -132,7 +132,7 @@ h1 {
 }
 .btn-del-line {
   width: 34px;
-  height: 34px;
+  height: 26px;
   border: none;
   background: none;
   border-radius: 20%;
