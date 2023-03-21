@@ -2,7 +2,7 @@
   margin: 0;
 }
 body {
-  background-color: rgb(41, 41, 41);
+  background-color: rgb(190, 190, 190);
   text-align: center;
   position: relative;
   padding-bottom: 50px;
@@ -45,8 +45,7 @@ h1 {
   width: fit-content;
   height: fit-content;
 }
-.set-line-number,
-.set-input-number {
+.wrap-set-number div {
   width: fit-content;
   display: inline-block;
   padding: 3px;
@@ -54,20 +53,16 @@ h1 {
   border: 2px solid rgb(255, 255, 255);
   border-radius: 5px;
 }
-.show-cnt-line,
-.show-cnt-input {
+
+.wrap-set-number span {
   width: 18px;
   text-align: center;
   line-height: 100%;
   font-size: 14px;
-}
-.set-line-number span,
-.set-input-number span {
   font-weight: bold;
   margin: 0 3px;
 }
-.set-line-number button,
-.set-input-number button {
+.wrap-set-number button {
   border: none;
   padding: 0;
   width: 21px;
@@ -76,8 +71,7 @@ h1 {
   line-height: 100%;
   background-color: rgb(167, 167, 167);
 }
-.set-line-number button:active,
-.set-input-number button:active {
+.wrap-set-number button:active {
   background-color: rgb(219, 219, 219);
 }
 
@@ -153,7 +147,7 @@ h1 {
   width: fit-content;
   height: fit-content;
   min-height: 20px;
-  background-color: rgb(124, 124, 124);
+  background-color: rgb(220, 220, 220);
   text-align: center;
   margin: 0 auto;
   padding: 10px;

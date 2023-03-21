@@ -4,6 +4,7 @@ $(function () {
   const buttons = $(".buttons");
   const setInputNumber = $(".set-input-number");
   const setLineNumber = $(".set-line-number");
+  const setKey = $(".set-key");
   var cntLine = $(".cnt-line").val();
   var cntInputVal = $(".cnt-input").val();
   const showCntInput = $(".show-cnt-input");
