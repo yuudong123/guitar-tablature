@@ -3,7 +3,7 @@
 - Enter chords, show fingering.
 - Save it to img-png.
 
-## Desc
+## Maker
 
 ### Buttons
 - Chord input : Enter Chord (ex. C , C7 , F# , Gsus4 ... but it can be changed)
