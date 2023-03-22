@@ -14,11 +14,12 @@
       /* 부트스트랩5에서 1400px 크기를 지원하지만, 4버전에서도 충분히 늘려줄수 있음 */
       @media screen and (max-width: 1440px) {
         .container {
-          max-width: 1440px;
+          max-width: 1140px;
         }
       }
       @media screen and (max-width: 575px) {
-        header {
+        .row-search,
+        .row-header {
           height: 100px;
         }
       }
@@ -26,56 +27,84 @@
   </head>
   <body>
     <h1 class="d-none">Guitar Tablature Maker</h1>
-    <header>
-      <div class="container-fluid" style="height: 65px">
-        <div class="row align-items-center" style="height: 100%">
-          <div class="logo col-lg-2 col-sm-12 text-center">
-            <div style="position: relative; width: 150px; margin: 0 auto">
-              <a href="#" class="item-header-menu" style="font-weight: bold; text-decoration-line: none">Guitar TAB Maker</a>
-              <div id="bar"></div>
+
+    <!-- search box -->
+    <div id="search-box" class="container-fluid position-fixed" style="background: rgb(120, 120, 120); z-index: 100; top: -65px">
+      <div class="container">
+        <div class="row-search row align-items-center" style="height: 65px">
+          <div class="col-4">
+            <div class="logo-search">
+              <div style="position: relative; width: 150px; margin: 0 auto">
+                <a href="#" class="item-header-menu" style="font-weight: bold; text-decoration-line: none">Guitar TAB Maker</a>
+                <div id="bar"></div>
+              </div>
             </div>
           </div>
-          <nav class="main-nav col-sm-2 col-12">
-            <ul id="gnb" class="d-flex justify-content-start">
-              <li class="text-center header-menu-hover" style="width: 60px">
-                <a href="maker.html" class="item-header-menu" style="text-decoration-line: none">Maker</a>
+          <div class="col-8 d-flex justify-content-end">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn my-2 my-sm-0 border-0 text-dark rounded-pill" type="submit" style="background-color: rgb(172, 172, 172)">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- search box -->
+
+    <!-- header -->
+    <div class="container-fluid bg-default" style="height: 65px"></div>
+    <header>
+      <div class="container-fluid bg-default">
+        <div class="container">
+          <div class="row-header row align-items-center" style="height: 65px">
+            <div class="logo col-lg-2 col-sm-12 text-center">
+              <div style="position: relative; width: 150px; margin: 0 auto">
+                <a href="#" class="item-header-menu" style="font-weight: bold; text-decoration-line: none">Guitar TAB Maker</a>
                 <div id="bar"></div>
-              </li>
-              <li class="text-center header-menu-hover" style="width: 60px">
-                <a href="#" class="item-header-menu" style="text-decoration-line: none">Share</a>
-                <div id="bar"></div>
-              </li>
-            </ul>
-          </nav>
-          <nav class="etc-nav col-sm-8 col-12">
-            <ul id="etc" class="d-flex justify-content-end">
-              <li class="text-right" style="width: 60%">
-                <form style="margin: 0">
-                  <input type="search" name="q" />
-                  <button class="item-header-menu header-menu-hover-s">Search</button>
-                  <div id="search-bar"></div>
-                </form>
-              </li>
-              <li class="text-center header-menu-hover" style="width: 60px">
-                <a href="#" class="item-header-menu" style="text-decoration-line: none">Help</a>
-                <div id="bar"></div>
-              </li>
-              <li class="text-center header-menu-hover" style="width: 60px">
-                <a href="#" class="item-header-menu" style="text-decoration-line: none">Sign Up</a>
-                <div id="bar"></div>
-              </li>
-            </ul>
-          </nav>
+              </div>
+            </div>
+            <nav class="main-nav col-sm-2 col-12">
+              <ul id="gnb" class="d-flex justify-content-start">
+                <li class="text-center header-menu-hover" style="width: 60px">
+                  <a href="maker.html" class="item-header-menu" style="text-decoration-line: none">Maker</a>
+                  <div id="bar"></div>
+                </li>
+                <li class="text-center header-menu-hover" style="width: 60px">
+                  <a href="#" class="item-header-menu" style="text-decoration-line: none">Share</a>
+                  <div id="bar"></div>
+                </li>
+              </ul>
+            </nav>
+            <nav class="etc-nav col-sm-8 col-12">
+              <ul id="etc" class="d-flex justify-content-end">
+                <li class="text-center header-menu-hover" style="width: 60px">
+                  <a href="#" id="search" class="item-header-menu" style="text-decoration-line: none">Search</a>
+                  <div id="bar"></div>
+                </li>
+                <li class="text-center header-menu-hover" style="width: 60px">
+                  <a href="#" class="item-header-menu" style="text-decoration-line: none">Help</a>
+                  <div id="bar"></div>
+                </li>
+                <li class="text-center header-menu-hover" style="width: 60px">
+                  <a href="#" class="item-header-menu" style="text-decoration-line: none">Sign Up</a>
+                  <div id="bar"></div>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </header>
+    <!-- header -->
+
+    <!-- carousel -->
     <section>
-      <div class="container-fluid align-items-center py-4" style="background: rgb(172, 172, 172)">
+      <div class="container-fluid align-items-center py-4 bg-default">
         <div class="container text-center">
           <h2 class="mb-0" style="font-weight: 500">Easy and Simple Composite with <br />Guitar Tablature Maker</h2>
         </div>
       </div>
-      <div class="container-fluid mt-5 py-4 px-5" style="border-radius: 10px; max-width: 848px; background: rgb(172, 172, 172)">
+      <div class="container-fluid mt-5 py-4 px-5 bg-default" style="border-radius: 10px; max-width: 848px">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner" style="position: relative; border-radius: 10px">
             <div class="carousel-item active">
@@ -106,7 +135,11 @@
         </div>
       </div>
     </section>
+    <!-- carousel -->
+
+    <!-- board shortcut -->
     <section class="main mt-5">
+      <!-- hot -->
       <div class="container-fluid">
         <div class="container">
           <div class="row">
@@ -151,6 +184,9 @@
           </div>
         </div>
       </div>
+      <!-- hot -->
+
+      <!-- new -->
       <div class="container-fluid my-5">
         <div class="container">
           <div class="row">
@@ -195,6 +231,9 @@
           </div>
         </div>
       </div>
+      <!-- new -->
+
+      <!-- board -->
       <div class="container-fluid my-5">
         <div class="container">
           <div class="row">
@@ -232,18 +271,25 @@
           </div>
         </div>
       </div>
+      <!-- board -->
     </section>
+    <!-- board shortcut -->
+
+    <!-- footer -->
     <footer class="page-footer text-center" style="background: rgb(181, 181, 181)">
       <div class="container-fluid">
         <div class="container justify-content-center">
           <p class="brand p-3 m-0"><b>Guitar Tablature Maker</b> by yuudong123<br />E-mail : yuudong123@github.com</p>
         </div>
       </div>
-      <div class="footer-copyright font-small text-center py-3" style="background: rgb(172, 172, 172)">
+      <div class="footer-copyright font-small text-center py-3 bg-default">
         © 2023 Copyright:
         <a href="https://github.com/yuudong123"> https://github.com/yuudong123</a>
       </div>
     </footer>
+    <!-- footer -->
+
+    <!-- button top -->
     <div id="btn-top" style="position: fixed; right: 20px; bottom: 20px; z-index: 9">
       <a href="#">
         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="rgb(120, 120, 120)" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
@@ -251,14 +297,12 @@
         </svg>
       </a>
     </div>
+    <!-- button top -->
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="scripts/default.js"></script>
-    <script>
-      $(".carousel").carousel({
-        interval: false,
-      });
-    </script>
+    <script src="scripts/index.js"></script>
   </body>
 </html>

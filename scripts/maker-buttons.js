@@ -11,6 +11,19 @@ $(function () {
   const showCntLine = $(".show-cnt-line");
   showCntInput.text(cntInputVal);
 
+  setKey.on("click", (event) => {
+    const cls = event.target.className;
+
+    switch (cls) {
+      case "btn-key-up": {
+        break;
+      }
+      case "btn-key-down": {
+        break;
+      }
+    }
+  });
+
   buttons.on("click", (event) => {
     const cls = event.target.className;
     cntLine = $(".cnt-line").val();

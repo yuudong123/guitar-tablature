@@ -47,7 +47,6 @@ header::after {
   padding: 0;
   border: none;
 }
-#search-bar,
 #bar {
   background: rgb(217, 217, 217);
   height: 5px;
@@ -57,10 +56,18 @@ header::after {
   transition: all 0.3s;
   position: absolute;
 }
-#search-bar {
-  right: 30px;
-}
 #bar {
   left: 50%;
 }
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  transition: all 0.3s;
+  top: 0;
+}
 /* Header */
+
+.bg-default {
+  background: rgb(172, 172, 172);
+}
