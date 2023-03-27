@@ -66,13 +66,13 @@ h1 {
   border: none;
   padding: 0;
   width: 21px;
-  height: 21px;
-  font-size: 16px;
+  height: 100%;
+  font-size: 20px;
   line-height: 100%;
   background-color: rgb(167, 167, 167);
 }
 .wrap-set-number button:active {
-  background-color: rgb(219, 219, 219);
+  font-weight: bold;
 }
 
 #container-chord-input {
