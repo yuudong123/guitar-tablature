@@ -165,7 +165,7 @@ h1 {
   padding: 10px;
 }
 #tab-title::placeholder {
-  color: rgb(68, 68, 68);
+  color: rgb(165, 165, 165);
 }
 #container-image .divider-line {
   height: 1px;

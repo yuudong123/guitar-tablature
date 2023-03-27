@@ -9,7 +9,7 @@
 - Chord input : Enter Chord (ex. C , C7 , F# , Gsus4 ... but it can be changed)
 - Show : Convert to how to play (fingering) each chords
 - Reset : Remove all rows, inputs and Clear TAB
-- Download : Download TAB parts to img file
+- Save : Save TAB parts to img file
 - Set Line +,- : Add|Remove 1 line
 - Set Input +,- : Add|Remove 1 input, Set input for all lines
 
