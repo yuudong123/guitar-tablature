@@ -71,3 +71,17 @@ header {
 .bg-default {
   background: rgb(172, 172, 172);
 }
+
+/* 부트스트랩 container 최대폭 늘리기 */
+/* 부트스트랩5에서 1400px 크기를 지원하지만, 4버전에서도 충분히 늘려줄수 있음 */
+@media screen and (max-width: 1440px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .row-search,
+  .row-header {
+    height: 100px;
+  }
+}
