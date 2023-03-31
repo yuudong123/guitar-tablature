@@ -50,7 +50,7 @@ $(function () {
             const currentChordInput = currentChordLine.children().eq(j).children().val();
             const chordImage = $("<img class='chord-image'/>");
             if (currentChordInput == "") {
-              chordImage.attr("src", "images/none.png");
+              chordImage.attr("src", "images/n.png");
             } else {
               const encodedChordInput = encodeURIComponent(currentChordInput.replace("Ab", "G%23").replace("Bb", "A%23").replace("Cb", "B").replace("Db", "C%23").replace("Eb", "D%23").replace("Fb", "E").replace("Gb", "F%23").replace("A#", "A%23").replace("B#", "C").replace("C#", "C%23").replace("D#", "D%23").replace("E#", "F").replace("F#", "F%23").replace("G#", "G%23"));
               chordImage.attr("src", "images/" + encodedChordInput + ".png");
@@ -72,13 +72,66 @@ $(function () {
         cntInputVal = 8;
         break;
       }
-      case "btn-download": {
-        html2canvas(document.getElementById("container-image")).then(function (canvas) {
-          var a = document.createElement("a");
-          a.href = canvas.toDataURL("image/png");
-          a.download = "New Tablature.png";
-          a.click();
-        });
+      case "btn-save": {
+        var temp = "";
+        const chordInputs = $("#container-chord-input .chord-line .cell .ipt");
+        for (let i = 0; i < cntLine * cntInputVal; i++) {
+          if (chordInputs.eq(i).val() == "") temp += "n,";
+          else temp += chordInputs.eq(i).val() + ",";
+        }
+        var newTemp = temp.substring(0, temp.length - 1);
+
+        // Save data to indexedDB
+        const dbName = "myDatabase";
+        const dbVersion = 1;
+        const request = indexedDB.open(dbName, dbVersion);
+
+        request.onupgradeneeded = (event) => {
+          const db = event.target.result;
+          const objectStore = db.createObjectStore("myObjectStore", { keyPath: "id" });
+        };
+
+        request.onsuccess = (event) => {
+          const db = event.target.result;
+          const transaction = db.transaction("myObjectStore", "readwrite");
+          const objectStore = transaction.objectStore("myObjectStore");
+          const countRequest = objectStore.count();
+          countRequest.onsuccess = () => {
+            const id = countRequest.result + 1;
+
+            const data = {
+              id,
+              title: $("#tab-title").val() || "New Tablature",
+              content: newTemp,
+              line: cntLine,
+              input: cntInputVal,
+            };
+
+            const addRequest = objectStore.add(data);
+
+            addRequest.onsuccess = () => {
+              const confirmed = confirm("Download as image?");
+              if (confirmed) {
+                html2canvas(document.getElementById("container-image")).then(function (canvas) {
+                  var a = document.createElement("a");
+                  a.href = canvas.toDataURL("image/png");
+                  a.download = "New Tablature.png";
+                  a.click();
+                });
+              }
+            };
+
+            addRequest.onerror = () => {
+              console.error("Failed to save data.");
+            };
+            transaction.oncomplete = () => {
+              db.close();
+            };
+          };
+        };
+        request.onerror = () => {
+          console.error("Failed to open indexedDB.");
+        };
         break;
       }
     }

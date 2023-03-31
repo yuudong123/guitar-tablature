@@ -39,11 +39,11 @@ $(function () {
           top: 0,
         });
       });
-      $("header").mouseleave(function () {
-        $("header").css({
-          top: "-50px",
-        });
-      });
+      // $("header").mouseleave(function () {
+      //   $("header").css({
+      //     top: "-50px",
+      //   });
+      // });
     }
   });
   // ===== header scroll animate =====

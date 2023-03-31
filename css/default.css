@@ -1,4 +1,4 @@
-/* Header */
+/* Header, Footer */
 ul,
 ol {
   list-style: none;
@@ -84,4 +84,8 @@ header {
   .row-header {
     height: 100px;
   }
+}
+
+body {
+  background-color: rgb(190, 190, 190);
 }

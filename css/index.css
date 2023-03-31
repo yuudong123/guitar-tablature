@@ -49,9 +49,6 @@ margin; padding;
 position; top; left; right; bottom;
 
 */
-body {
-  background-color: rgb(190, 190, 190);
-}
 
 /* ========== 기본 참조 구분선 ========== */
 .logo {
