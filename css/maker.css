@@ -11,6 +11,7 @@ h1 {
   background-color: #838383;
   padding: 10px;
 }
+
 .cntLine,
 .cntInput {
   display: none;
@@ -183,38 +184,4 @@ h1 {
   column-gap: 8px;
   margin: 0 auto;
   margin-top: 10px;
-}
-
-#workslist {
-  background: rgb(167, 167, 167);
-  height: fit-content;
-  width: fit-content;
-  min-width: 125px;
-  border: 2px solid white;
-  border-radius: 10px;
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  margin: 0;
-  padding: 10px;
-  box-shadow: rgb(97, 97, 97) 6px 6px 6px;
-}
-
-#workslist ul {
-  margin: 0;
-  padding: 0;
-}
-
-#workslist ul li {
-  text-align: left;
-  padding: 0 5px;
-}
-#workslist ul li:hover {
-  background-color: rgb(220, 220, 220);
-  cursor: pointer;
-}
-
-#workslist p {
-  font-weight: bold;
-  font-size: 1rem;
 }
