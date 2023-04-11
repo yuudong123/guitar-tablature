@@ -132,11 +132,11 @@ $(function () {
         request.onerror = () => {
           console.error("Failed to open indexedDB.");
         };
+        $(".cnt-line").attr("value", cntLine);
+        $(".cnt-input").attr("value", cntInputVal);
         break;
       }
     }
-    $(".cnt-line").attr("value", cntLine);
-    $(".cnt-input").attr("value", cntInputVal);
   });
 
   setInputNumber.on("click", (event) => {
