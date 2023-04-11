@@ -42,7 +42,6 @@ $(function () {
               $(".btn-input-down").trigger("click");
             }
           }
-          $(".cnt-input").val(data[i].input).trigger("input");
           const chordInputs = $("#container-chord-input .chord-line .cell .ipt");
           const chords = data[i].content.split(",");
           for (let j = 0; j < chordInputs.length && j < chords.length; j++) {
