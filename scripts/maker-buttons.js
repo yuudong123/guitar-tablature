@@ -134,6 +134,7 @@ $(function () {
         };
         $(".cnt-line").attr("value", cntLine);
         $(".cnt-input").attr("value", cntInputVal);
+        console.log(cntLine, cntInputVal);
         break;
       }
     }
